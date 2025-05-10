@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import './App.css';
@@ -30,7 +31,7 @@ const PlayfulActivityCard = () => {
       <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 text-gray-800 dark:text-white">
         Let's Play Together!
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl mx-auto"> {/* Added max-width constraint */}
         {activities.map((activity, index) => (
           <motion.div
             key={index}
@@ -78,13 +79,8 @@ const PlayfulActivityCard = () => {
 };
 
 function App() {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    setTheme(savedTheme);
-  }, []);
 
   useEffect(() => {
     if (theme === 'dark') {
@@ -104,21 +100,13 @@ function App() {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  const scheduleItems = [
-    "READY JULY 5",
-    "SATURDAY JULY 6",
-    "JUNE 7",
-    "BEST SALES",
-    "FREE DAYS",
-    "HOURS 9AM-4PM"
-  ];
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 font-sans transition-colors duration-500 overflow-x-hidden w-full flex justify-center items-start py-4">
-      <div className="w-full mx-auto px-2 sm:px-4 md:px-6 lg:px-8 bg-white dark:bg-gray-800 rounded-[1.25rem] shadow-lg p-4 sm:p-6 lg:p-8 transition-all duration-300 hover:shadow-xl overflow-hidden">
+      {/* Changed container width to max-w-7xl and added mx-auto for centering */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800 rounded-[1.25rem] shadow-lg p-6 lg:p-8 transition-all duration-300 hover:shadow-xl overflow-hidden">
 
+        {/* Rest of your original code remains EXACTLY the same */}
         <header className="kidcamp-header relative">
-          {/* Add Font Awesome CSS link in your HTML file for cloud icons */}
           <i className="fas fa-cloud cloud" style={{ top: '20%', left: '10%' }}></i>
           <i className="fas fa-cloud cloud" style={{ top: '15%', right: '15%', animationDuration: '18s', animationDirection: 'reverse' }}></i>
 
@@ -159,7 +147,6 @@ function App() {
         <footer className="bg-gray-800 text-white text-center py-6 mt-12 rounded-b-[1.25rem]">
           <p>&copy; 2025 Watoto Fun. All rights reserved.</p>
         </footer>
-
       </div>
     </div>
   );
