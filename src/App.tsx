@@ -30,7 +30,7 @@ const PlayfulActivityCard = () => {
       <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 text-gray-800 dark:text-white">
         Let's Play Together!
       </h2>
-      
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
         {activities.map((activity, index) => (
           <motion.div
@@ -55,10 +55,10 @@ const PlayfulActivityCard = () => {
               >
                 {activity.emoji}
               </motion.div>
-              
+
               <h3 className="text-xl font-bold text-center mb-2 dark:text-white">{activity.title}</h3>
               <p className="text-center mb-4 dark:text-gray-200">{activity.description}</p>
-              
+
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -74,7 +74,7 @@ const PlayfulActivityCard = () => {
           </motion.div>
         ))}
       </div>
-      
+
       <div className="mt-12 flex justify-center">
         <motion.img
           src="/assets/kid-mascot.png"
@@ -131,8 +131,8 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 font-sans transition-colors duration-500 overflow-x-hidden w-full flex justify-center items-start py-4">
-      <div className="w-[90%] max-w-[1800px] bg-white dark:bg-gray-800 rounded-container shadow-soft p-4 sm:p-6 lg:p-8 transition-all duration-300 hover:shadow-soft-hover overflow-hidden">
-        
+      <div className="w-full max-w-screen-2xl mx-auto px-4 bg-white dark:bg-gray-800 rounded-container shadow-soft p-4 sm:p-6 lg:p-8 transition-all duration-300 hover:shadow-soft-hover overflow-hidden">
+
         <header className="kidcamp-header relative">
           <i className="fas fa-cloud cloud" style={{ top: '20%', left: '10%' }}></i>
           <i className="fas fa-cloud cloud" style={{ 
@@ -141,7 +141,7 @@ function App() {
             animationDuration: '18s', 
             animationDirection: 'reverse' 
           }}></i>
-          
+
           <button 
             onClick={toggleTheme}
             className="absolute top-4 right-4 p-2 rounded-md bg-white/30 dark:bg-gray-700/80 text-gray-800 dark:text-gray-200 z-50 transition-transform transform hover:scale-110"
@@ -149,7 +149,7 @@ function App() {
           >
             {theme === 'light' ? '🌙' : '☀️'}
           </button>
-          
+
           <button 
             onClick={toggleMobileMenu}
             className="md:hidden absolute top-4 left-4 text-white p-2 rounded-md hover:bg-white/20 z-50"
@@ -161,7 +161,7 @@ function App() {
           </button>
 
           <h1 className="header-title text-3xl sm:text-4xl md:text-5xl">Watoto Fun</h1>
-          
+
           <div className="logo-circle">
             <div className="logo-text">PLAY</div>
           </div>
@@ -199,7 +199,7 @@ function App() {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="space-y-2">
                   <div className="h-4 w-3/4 bg-gray-200 dark:bg-gray-600 rounded-full mx-auto"></div>
                   <div className="h-3 w-1/2 bg-gray-200 dark:bg-gray-600 rounded-full mx-auto"></div>
