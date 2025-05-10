@@ -78,8 +78,13 @@ const PlayfulActivityCard = () => {
 };
 
 function App() {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+  const [theme, setTheme] = useState('light');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(savedTheme);
+  }, []);
 
   useEffect(() => {
     if (theme === 'dark') {
@@ -99,10 +104,6 @@ function App() {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  const handleVideoClick = (videoId: number) => {
-    alert(`Video ${videoId} clicked! Placeholder action.`);
-  };
-
   const scheduleItems = [
     "READY JULY 5",
     "SATURDAY JULY 6",
@@ -114,9 +115,10 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 font-sans transition-colors duration-500 overflow-x-hidden w-full flex justify-center items-start py-4">
-      <div className="w-full mx-auto px-2 sm:px-4 md:px-6 lg:px-8 bg-white dark:bg-gray-800 rounded-container shadow-soft p-4 sm:p-6 lg:p-8 transition-all duration-300 hover:shadow-soft-hover overflow-hidden">
+      <div className="w-full mx-auto px-2 sm:px-4 md:px-6 lg:px-8 bg-white dark:bg-gray-800 rounded-[1.25rem] shadow-lg p-4 sm:p-6 lg:p-8 transition-all duration-300 hover:shadow-xl overflow-hidden">
 
         <header className="kidcamp-header relative">
+          {/* Add Font Awesome CSS link in your HTML file for cloud icons */}
           <i className="fas fa-cloud cloud" style={{ top: '20%', left: '10%' }}></i>
           <i className="fas fa-cloud cloud" style={{ top: '15%', right: '15%', animationDuration: '18s', animationDirection: 'reverse' }}></i>
 
@@ -153,8 +155,6 @@ function App() {
         )}
 
         <PlayfulActivityCard />
-
-        {/* Add other sections here if needed */}
 
         <footer className="bg-gray-800 text-white text-center py-6 mt-12 rounded-b-[1.25rem]">
           <p>&copy; 2025 Watoto Fun. All rights reserved.</p>
