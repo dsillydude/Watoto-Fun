@@ -2,26 +2,42 @@ const { fontFamily } = require("tailwindcss/defaultTheme")
 
 /** @type {import("tailwindcss").Config} */
 module.exports = {
-  darkMode: "class", // Enable class-based dark mode
+  darkMode: "class",
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
-    "./index.html", // Make sure index.html is included for font loading
+    "./index.html",
   ],
   theme: {
     extend: {
       fontFamily: {
         sans: ["Comic Neue", ...fontFamily.sans],
       },
-      borderRadius: {
-        "4xl": "2rem", // Existing
-        "5xl": "2.5rem", // Existing
-        "6xl": "3rem", // Existing
-        "hero": "20px", // Add specific 20px radius for hero section
+      colors: {
+        'fun-pink': '#FF6B6B',
+        'playful-purple': '#9F7AEA',
+        'soft-blue': '#63B3ED',
       },
-      spacing: {
-        // Assuming px-4 (1rem/16px) was the original padding
-        // 80% reduction: 16px * 0.2 = 3.2px. Let's use px-1 (0.25rem/4px) as the closest standard Tailwind value.
-        // If a more precise value is needed, we could define a custom one like '1p': '3.2px', but px-1 is simpler.
+      borderRadius: {
+        'container': '1.5rem',
+        '4xl': '2rem',
+        '5xl': '2.5rem',
+        '6xl': '3rem',
+        'hero': '20px',
+      },
+      boxShadow: {
+        'soft': '0 20px 40px -15px rgba(0, 0, 0, 0.1)',
+        'soft-hover': '0 25px 50px -12px rgba(159, 122, 234, 0.25)',
+        'inner-playful': 'inset 0 2px 8px 0 rgba(0, 0, 0, 0.1)',
+      },
+      animation: {
+        'bounce-slow': 'bounce 3s infinite',
+        'float': 'float 6s ease-in-out infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-15px)' },
+        }
       }
     },
   },
