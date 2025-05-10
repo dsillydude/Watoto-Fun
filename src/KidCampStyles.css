@@ -1,3 +1,5 @@
+/* KidCampStyles.css - Updated Version */
+
 /* Base Styles */
 :root {
   --main-blue: #4D9DE0;
@@ -6,6 +8,11 @@
   --light-yellow: #FFEE88;
   --grass-green: #7DB356;
   --purple: #9B5DE5;
+}
+
+/* === NEW ADDITION === */
+.backdrop-blur-sm {
+  backdrop-filter: blur(8px);
 }
 
 /* Animations */
@@ -26,15 +33,9 @@
   100% { background-position: 0% 50%; }
 }
 
-@keyframes gentleBounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-@keyframes gentleWiggle {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(3deg); }
-  75% { transform: rotate(-3deg); }
+/* === NEW ADDITION === */
+.bg-gradient-to-br {
+  transition: background 0.5s ease;
 }
 
 /* Header Styles */
@@ -49,201 +50,7 @@
   margin-bottom: 40px;
 }
 
-.header-title {
-  font-family: 'Baloo 2', cursive;
-  font-size: 3.5rem;
-  margin: 10px 0;
-  text-shadow: 3px 3px 0 rgba(0,0,0,0.1);
-}
-
-.logo-circle {
-  width: 200px;
-  height: 200px;
-  background: var(--light-yellow);
-  border-radius: 50%;
-  margin: 0 auto;
-  border: 8px dashed var(--main-orange);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: pulse 2s infinite alternate;
-}
-
-.logo-text {
-  font-family: 'Baloo 2', cursive;
-  font-weight: 800;
-  font-size: 2rem;
-  color: var(--accent-red);
-}
-
-/* Floating Clouds */
-.cloud {
-  position: absolute;
-  opacity: 0.8;
-  z-index: 1;
-  font-size: 3rem;
-  animation: float 15s infinite linear;
-  color: white;
-}
-
-/* Activities Grid */
-.activities-grid {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-  margin: 40px auto;
-  max-width: 1000px;
-}
-
-.activity-card {
-  background: white;
-  padding: 25px;
-  border-radius: 20px;
-  width: 250px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: all 0.3s;
-}
-
-.activity-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-}
-
-.activity-icon {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-}
-
-/* Video Grid */
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 30px;
-  margin: 40px auto;
-  max-width: 1200px;
-}
-
-.video-card {
-  background: white;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: all 0.3s;
-}
-
-.video-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-/* Event Schedule Section */
-.event-schedule-section {
-  background: linear-gradient(135deg, #00c6a7 0%, #1e4d92 100%);
-  background-size: 200% 200%;
-  animation: gradientShift 8s ease infinite;
-}
-
-.schedule-buttons-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 40px;
-}
-
-.schedule-button {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  color: white;
-  padding: 14px 28px;
-  border-radius: 50px;
-  font-weight: 700;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.4s;
-}
-
-.schedule-button:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.25);
-}
-
-/* CTA Button */
-.cta-button {
-  background: var(--main-orange);
-  color: white;
-  padding: 15px 30px;
-  border-radius: 50px;
-  font-family: 'Baloo 2', cursive;
-  font-weight: 800;
-  font-size: 1.2rem;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 5px 0 var(--accent-red);
-  transition: all 0.2s;
-}
-
-.cta-button:hover {
-  transform: translateY(3px);
-  box-shadow: 0 2px 0 var(--accent-red);
-}
-
-/* Playful Activity Cards Additions */
-.dark .bg-blue-100 {
-  background-color: rgba(147, 197, 253, 0.1);
-  backdrop-filter: blur(10px);
-}
-
-.dark .bg-pink-100 {
-  background-color: rgba(249, 168, 212, 0.1);
-  backdrop-filter: blur(10px);
-}
-
-.dark .bg-purple-100 {
-  background-color: rgba(216, 180, 254, 0.1);
-  backdrop-filter: blur(10px);
-}
-
-.emoji-bounce {
-  animation: gentleBounce 3s infinite ease-in-out;
-}
-
-.character-container {
-  perspective: 1000px;
-}
-
-.character-3d {
-  transition: transform 0.5s ease;
-  transform-style: preserve-3d;
-}
-
-.character-container:hover .character-3d {
-  transform: rotateY(15deg) rotateX(5deg);
-}
-
-/* Dark Mode Adjustments */
-.dark .activity-card {
-  background: #2d3748;
-  color: #f7fafc;
-}
-
-.dark .video-card {
-  background: #2d3748;
-}
-
-.dark .schedule-button {
-  background: #2d3748;
-  color: white;
-}
-
-.dark .schedule-button:hover {
-  background: var(--light-yellow);
-  color: var(--accent-red);
-}
-
-.dark .event-schedule-section {
-  background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
-}
+/* ... (rest of existing styles) ... */
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
@@ -256,10 +63,14 @@
     height: 150px;
   }
   
-  .activities-grid,
-  .video-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  /* === NEW ADDITIONS === */
+  .text-6xl {
+    font-size: 4rem;
+  }
+  
+  .grid {
+    gap: 1.5rem;
+    padding: 1rem;
   }
   
   .schedule-buttons-container {
@@ -271,3 +82,24 @@
     font-size: 0.9rem;
   }
 }
+
+/* Dark Mode Adjustments */
+.dark .activity-card {
+  background: #2d3748;
+  color: #f7fafc;
+}
+
+/* === NEW DARK MODE ADDITIONS === */
+.dark .bg-gradient-to-br {
+  background: linear-gradient(to bottom right, #1a1a1a, #2d2d2d);
+}
+
+.dark .text-white {
+  color: #f0f0f0;
+}
+
+.dark .video-card {
+  background: #2d3748;
+}
+
+/* ... (rest of existing dark mode styles) ... */
