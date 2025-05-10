@@ -30,7 +30,6 @@ const PlayfulActivityCard = () => {
       <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 text-gray-800 dark:text-white">
         Let's Play Together!
       </h2>
-
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
         {activities.map((activity, index) => (
           <motion.div
@@ -42,23 +41,14 @@ const PlayfulActivityCard = () => {
           >
             <div className={`${activity.color} rounded-3xl p-6 shadow-lg hover:shadow-xl transition-shadow h-full dark:bg-opacity-20`}>
               <motion.div
-                animate={{
-                  y: [0, -10, 0],
-                  rotate: [0, 5, -5, 0]
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
+                animate={{ y: [0, -10, 0], rotate: [0, 5, -5, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 className="text-6xl text-center mb-4"
               >
                 {activity.emoji}
               </motion.div>
-
               <h3 className="text-xl font-bold text-center mb-2 dark:text-white">{activity.title}</h3>
               <p className="text-center mb-4 dark:text-gray-200">{activity.description}</p>
-
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -74,20 +64,13 @@ const PlayfulActivityCard = () => {
           </motion.div>
         ))}
       </div>
-
       <div className="mt-12 flex justify-center">
         <motion.img
           src="/assets/kid-mascot.png"
           alt="Friendly Robot"
           className="h-40"
-          animate={{
-            y: [0, -15, 0],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
+          animate={{ y: [0, -15, 0] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
     </div>
@@ -135,12 +118,7 @@ function App() {
 
         <header className="kidcamp-header relative">
           <i className="fas fa-cloud cloud" style={{ top: '20%', left: '10%' }}></i>
-          <i className="fas fa-cloud cloud" style={{
-            top: '15%',
-            right: '15%',
-            animationDuration: '18s',
-            animationDirection: 'reverse'
-          }}></i>
+          <i className="fas fa-cloud cloud" style={{ top: '15%', right: '15%', animationDuration: '18s', animationDirection: 'reverse' }}></i>
 
           <button
             onClick={toggleTheme}
@@ -161,7 +139,6 @@ function App() {
           </button>
 
           <h1 className="header-title text-3xl sm:text-4xl md:text-5xl">Watoto Fun</h1>
-
           <div className="logo-circle">
             <div className="logo-text">PLAY</div>
           </div>
@@ -169,6 +146,23 @@ function App() {
 
         {mobileMenuOpen && (
           <nav className="fixed top-0 left-0 right-0 bg-white dark:bg-gray-800 shadow-lg rounded-b-lg p-4 z-50 mt-[200px]">
-            <a href="#videos" onClick={toggleMobileMenu} className="block py-2 text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400">Videos</a>
-            <a href="#songs" onClick={toggleMobileMenu} className="block py-2 text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400">Songs</a>
-            <a href="#activities" onClick={toggleMobileMenu} className="block
+            <a href="#videos" onClick={toggleMobileMenu} className="block py-2">Videos</a>
+            <a href="#songs" onClick={toggleMobileMenu} className="block py-2">Songs</a>
+            <a href="#activities" onClick={toggleMobileMenu} className="block py-2">Activities</a>
+          </nav>
+        )}
+
+        <PlayfulActivityCard />
+
+        {/* Add other sections here if needed */}
+
+        <footer className="bg-gray-800 text-white text-center py-6 mt-12 rounded-b-[1.25rem]">
+          <p>&copy; 2025 Watoto Fun. All rights reserved.</p>
+        </footer>
+
+      </div>
+    </div>
+  );
+}
+
+export default App;
