@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import './App.css';
 import './KidCampStyles.css';
-import PlayfulActivityCard from './components/PlayfulActivityCard';
 
 // New component - paste this in src/components/PlayfulActivityCard.tsx
 const PlayfulActivityCard = () => {
