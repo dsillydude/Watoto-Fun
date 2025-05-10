@@ -42,7 +42,7 @@ const PlayfulActivityCard = () => {
           >
             <div className={`${activity.color} rounded-3xl p-6 shadow-lg hover:shadow-xl transition-shadow h-full dark:bg-opacity-20`}>
               <motion.div
-                animate={{ 
+                animate={{
                   y: [0, -10, 0],
                   rotate: [0, 5, -5, 0]
                 }}
@@ -122,7 +122,7 @@ function App() {
 
   const scheduleItems = [
     "READY JULY 5",
-    "SATURDAY JULY 6", 
+    "SATURDAY JULY 6",
     "JUNE 7",
     "BEST SALES",
     "FREE DAYS",
@@ -131,18 +131,18 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 font-sans transition-colors duration-500 overflow-x-hidden w-full flex justify-center items-start py-4">
-      <div className="w-full max-w-screen-2xl mx-auto px-4 bg-white dark:bg-gray-800 rounded-container shadow-soft p-4 sm:p-6 lg:p-8 transition-all duration-300 hover:shadow-soft-hover overflow-hidden">
+      <div className="w-full mx-auto px-2 sm:px-4 md:px-6 lg:px-8 bg-white dark:bg-gray-800 rounded-container shadow-soft p-4 sm:p-6 lg:p-8 transition-all duration-300 hover:shadow-soft-hover overflow-hidden">
 
         <header className="kidcamp-header relative">
           <i className="fas fa-cloud cloud" style={{ top: '20%', left: '10%' }}></i>
-          <i className="fas fa-cloud cloud" style={{ 
-            top: '15%', 
-            right: '15%', 
-            animationDuration: '18s', 
-            animationDirection: 'reverse' 
+          <i className="fas fa-cloud cloud" style={{
+            top: '15%',
+            right: '15%',
+            animationDuration: '18s',
+            animationDirection: 'reverse'
           }}></i>
 
-          <button 
+          <button
             onClick={toggleTheme}
             className="absolute top-4 right-4 p-2 rounded-md bg-white/30 dark:bg-gray-700/80 text-gray-800 dark:text-gray-200 z-50 transition-transform transform hover:scale-110"
             aria-label="Toggle theme"
@@ -150,7 +150,7 @@ function App() {
             {theme === 'light' ? '🌙' : '☀️'}
           </button>
 
-          <button 
+          <button
             onClick={toggleMobileMenu}
             className="md:hidden absolute top-4 left-4 text-white p-2 rounded-md hover:bg-white/20 z-50"
             aria-label="Toggle menu"
@@ -171,74 +171,4 @@ function App() {
           <nav className="fixed top-0 left-0 right-0 bg-white dark:bg-gray-800 shadow-lg rounded-b-lg p-4 z-50 mt-[200px]">
             <a href="#videos" onClick={toggleMobileMenu} className="block py-2 text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400">Videos</a>
             <a href="#songs" onClick={toggleMobileMenu} className="block py-2 text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400">Songs</a>
-            <a href="#activities" onClick={toggleMobileMenu} className="block py-2 text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400">Activities</a>
-          </nav>
-        )}
-
-        <PlayfulActivityCard />
-
-        <section id="videos" className="w-full px-4 py-16">
-          <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-8 text-center">Videos</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
-            {[1, 2, 3].map((item) => (
-              <div 
-                key={item} 
-                onClick={() => handleVideoClick(item)}
-                className="group bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer"
-              >
-                <div className={`relative w-full aspect-video rounded-lg mb-4 overflow-hidden ${
-                  item === 1 ? 'bg-gradient-to-br from-blue-200 to-blue-400 dark:from-blue-700 dark:to-blue-900' : 
-                  item === 2 ? 'bg-gradient-to-br from-pink-200 to-pink-400 dark:from-pink-700 dark:to-pink-900' : 
-                  'bg-gradient-to-br from-purple-200 to-purple-400 dark:from-purple-700 dark:to-purple-900'
-                }`}>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 bg-white/90 dark:bg-gray-800/90 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-500 dark:text-blue-400" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <div className="h-4 w-3/4 bg-gray-200 dark:bg-gray-600 rounded-full mx-auto"></div>
-                  <div className="h-3 w-1/2 bg-gray-200 dark:bg-gray-600 rounded-full mx-auto"></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section id="songs" className="w-full px-4 py-16 bg-gray-50 dark:bg-gray-700/30 transition-colors duration-500 rounded-xl">
-          <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-8 text-center">Songs</h2>
-          <p className="text-gray-600 dark:text-gray-400 text-center">Song section coming soon!</p>
-        </section>
-
-        <section className="event-schedule-section w-full px-4 py-16 text-white rounded-xl overflow-hidden">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold mb-10 text-center drop-shadow-md">EVENT SCHEDULE</h2>
-            <div className="schedule-buttons-container">
-              {scheduleItems.map((item, index) => (
-                <button key={index} className="schedule-button">
-                  {item}
-                </button>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <div className="text-center my-12">
-          <button className="cta-button dark:bg-orange-700 dark:hover:bg-orange-800">
-            Join the Fun!
-          </button>
-        </div>
-
-        <footer className="bg-gray-800 dark:bg-black text-white dark:text-gray-400 text-center py-6 mt-12 rounded-b-[1.25rem]">
-          <p>&copy; 2025 Watoto Fun. All rights reserved.</p>
-        </footer>
-      </div>
-    </div>
-  );
-}
-
-export default App;
+            <a href="#activities" onClick={toggleMobileMenu} className="block
