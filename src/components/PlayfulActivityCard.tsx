@@ -2,14 +2,13 @@ import { motion } from "framer-motion";
 import { FaGamepad, FaMusic, FaPalette } from "react-icons/fa";
 
 interface ActivityCardProps {
-  icon: JSX.Element; // Changed from emoji to icon
+  icon: JSX.Element;
   title: string;
   description: string;
   color: string;
 }
 
 const PlayfulActivityCard = () => {
-  // Updated activities data with icons
   const activities: ActivityCardProps[] = [
     {
       icon: <FaGamepad className="inline-block" />,
@@ -32,12 +31,12 @@ const PlayfulActivityCard = () => {
   ];
 
   return (
-    <div className="py-10 px-4">
+    <div className="py-10 px-6 md:px-10 rounded-[2rem] shadow-2xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-md max-w-6xl mx-auto border border-white/30">
       <h2 className="text-3xl font-bold text-center mb-8 text-gray-800 dark:text-white">
         Let's Play Together!
       </h2>
-      
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {activities.map((activity, index) => (
           <motion.div
             key={index}
@@ -47,9 +46,8 @@ const PlayfulActivityCard = () => {
             viewport={{ once: true }}
           >
             <div className={`${activity.color} rounded-3xl p-6 shadow-lg hover:shadow-xl transition-shadow h-full`}>
-              {/* Animated Icon */}
               <motion.div
-                animate={{ 
+                animate={{
                   y: [0, -10, 0],
                   rotate: [0, 5, -5, 0]
                 }}
@@ -62,10 +60,10 @@ const PlayfulActivityCard = () => {
               >
                 {activity.icon}
               </motion.div>
-              
+
               <h3 className="text-xl font-bold text-center mb-2">{activity.title}</h3>
               <p className="text-center mb-4">{activity.description}</p>
-              
+
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -81,8 +79,7 @@ const PlayfulActivityCard = () => {
           </motion.div>
         ))}
       </div>
-      
-      {/* Friendly 3D Character */}
+
       <div className="mt-12 flex justify-center">
         <motion.img
           src="/assets/kid-mascot.png"
