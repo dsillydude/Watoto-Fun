@@ -26,7 +26,7 @@ const PlayfulActivityCard = () => {
   ];
 
   return (
-    <div className="sm:py-8 sm:px-2"> {/* Mobile: no padding, Desktop: py-8 px-2 */}
+    <div className="sm:py-8 sm:px-2">
       <h2 className="text-2xl sm:text-3xl font-bold text-center sm:mb-6 text-gray-800 dark:text-white">
         Let's Play Together!
       </h2>
@@ -53,9 +53,11 @@ const PlayfulActivityCard = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className={`w-full py-2 px-4 rounded-full font-bold ${
-                  index === 0 ? "bg-blue-400 hover:bg-blue-500" :
-                  index === 1 ? "bg-pink-400 hover:bg-pink-500" :
-                  "bg-purple-400 hover:bg-purple-500"
+                  index === 0 
+                    ? "bg-blue-400 hover:bg-blue-500" 
+                    : index === 1 
+                      ? "bg-pink-400 hover:bg-pink-500" 
+                      : "bg-purple-400 hover:bg-purple-500"
                 } text-white`}
               >
                 Play Now
@@ -68,7 +70,7 @@ const PlayfulActivityCard = () => {
         <motion.img
           src="/assets/kid-mascot.png"
           alt="Friendly Robot"
-          className="h-32 sm:h-40" {/* Mobile: smaller size */}
+          className="h-32 sm:h-40"
           animate={{ y: [0, -15, 0] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -78,17 +80,17 @@ const PlayfulActivityCard = () => {
 };
 
 function App() {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+  const [theme, setTheme] = useState('light');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(savedTheme);
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {
@@ -101,10 +103,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 font-sans transition-colors duration-500 overflow-x-hidden w-full flex justify-center items-start sm:py-4">
-      {/* Mobile: no padding, Desktop: py-4 */}
       <div className="w-full mx-auto px-0 sm:px-6 lg:px-8 bg-white dark:bg-gray-800 rounded-[1.25rem] shadow-lg sm:p-6 lg:p-8 transition-all duration-300 hover:shadow-xl overflow-hidden">
-        {/* Mobile: px-0, Desktop: px-6 */}
-
         <header className="kidcamp-header relative">
           <i className="fas fa-cloud cloud" style={{ top: '20%', left: '10%' }}></i>
           <i className="fas fa-cloud cloud" style={{ top: '15%', right: '15%', animationDuration: '18s', animationDirection: 'reverse' }}></i>
@@ -135,7 +134,6 @@ function App() {
 
         {mobileMenuOpen && (
           <nav className="fixed top-0 left-0 right-0 bg-white dark:bg-gray-800 shadow-lg rounded-b-lg p-4 z-50 mt-[120px] sm:mt-[200px]">
-            {/* Mobile: smaller top margin */}
             <a href="#videos" onClick={toggleMobileMenu} className="block py-2">Videos</a>
             <a href="#songs" onClick={toggleMobileMenu} className="block py-2">Songs</a>
             <a href="#activities" onClick={toggleMobileMenu} className="block py-2">Activities</a>
@@ -145,7 +143,6 @@ function App() {
         <PlayfulActivityCard />
 
         <footer className="bg-gray-800 text-white text-center py-4 sm:py-6 sm:mt-12 rounded-b-[1.25rem]">
-          {/* Mobile: smaller padding */}
           <p>&copy; 2025 Watoto Fun. All rights reserved.</p>
         </footer>
       </div>
