@@ -162,9 +162,18 @@ function App() {
 
           <h1 className="header-title text-3xl sm:text-4xl md:text-5xl">Watoto Fun</h1>
 
-          <div className="logo-circle">
-            <div className="logo-text">PLAY</div>
-          </div>
+          {/* Explore Button */}
+<div className="explore-button-container">
+  <motion.a
+    href="#"
+    className="explore-button"
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+  >
+    <span>Explore!</span>
+    <div className="sparkles">✨✨</div>
+  </motion.a>
+</div>
         </header>
 
         {mobileMenuOpen && (
