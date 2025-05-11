@@ -225,12 +225,12 @@ function App() {
 
         <div className="text-center my-12">
           <button className="cta-button dark:bg-orange-700 dark:hover:bg-orange-800">
-            Join the Fun!
+             Karibu Ufurahi!
           </button>
         </div>
 
         <footer className="bg-gray-800 dark:bg-black text-white dark:text-gray-400 text-center py-6 mt-12 rounded-b-[1.25rem]">
-          <p>&copy; 2025 Watoto Fun. All rights reserved.</p>
+          <p>&copy; 2025 Watoto.Fun. All rights reserved.</p>
         </footer>
       </div>
     </div>
