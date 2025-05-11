@@ -6,21 +6,21 @@ import './KidCampStyles.css';
 const PlayfulActivityCard = () => {
   const activities = [
     {
-      emoji: "🎮",
-      title: "Games",
-      description: "Fun learning adventures!",
+      emoji: "📖",
+      title: "Hadithi",
+      description: "Hadithii mbalimbali za watoto",
       color: "bg-blue-100"
     },
     {
       emoji: "🎵",
-      title: "Music",
-      description: "Sing and dance along!",
+      title: "Nyimbo Za Watoto",
+      description: "Imba na Kucheza Nasi!",
       color: "bg-pink-100"
     },
     {
-      emoji: "🎨",
-      title: "Art",
-      description: "Create masterpieces!",
+      emoji: "📺",
+      title: "Video",
+      description: "Tazama Video Na Ucheze!",
       color: "bg-purple-100"
     }
   ];
