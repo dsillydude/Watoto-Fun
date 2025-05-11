@@ -96,7 +96,6 @@ const PlayfulActivityCard = () => {
 
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     if (theme === 'dark') {
@@ -110,10 +109,6 @@ function App() {
 
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
-  };
-
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
   };
 
   const handleVideoClick = (videoId: number) => {
