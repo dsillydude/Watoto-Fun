@@ -163,7 +163,7 @@ function App() {
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
     >
-      <span>Explore!</span>
+      <span>KaRIBU!</span>
       <div className="sparkles">✨✨</div>
     </motion.a>
   </div>
