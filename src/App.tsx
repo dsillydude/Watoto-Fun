@@ -170,14 +170,7 @@ function App() {
 </div>
         </header>
 
-        {mobileMenuOpen && (
-          <nav className="fixed top-0 left-0 right-0 bg-white dark:bg-gray-800 shadow-lg rounded-b-lg p-4 z-50 mt-[200px]">
-            <a href="#videos" onClick={toggleMobileMenu} className="block py-2 text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400">Videos</a>
-            <a href="#songs" onClick={toggleMobileMenu} className="block py-2 text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400">Songs</a>
-            <a href="#activities" onClick={toggleMobileMenu} className="block py-2 text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400">Activities</a>
-          </nav>
-        )}
-
+      
         <PlayfulActivityCard />
 
         <section id="videos" className="w-full px-4 py-16">
