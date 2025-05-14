@@ -1,3 +1,4 @@
+import Soundboard from './components/Soundboard'; // Adjust path if App.tsx is not in src/
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import './App.css';
