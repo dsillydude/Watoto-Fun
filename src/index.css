@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  
+  .dark {
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer utilities {
+  /* Container shadows */
+  .shadow-soft {
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dark .shadow-soft {
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .shadow-soft-hover {
+    box-shadow: 0 25px 50px -12px rgba(159, 122, 234, 0.25);
+  }
+  
+  .dark .shadow-soft-hover {
+    box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.35);
+  }
+
+  /* Animations */
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out;
+  }
+  
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .hover-scale {
+    transition: transform 0.3s ease;
+  }
+  
+  .hover-scale:hover {
+    transform: scale(1.02);
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 640px) {
+    .kidcamp-header {
+      padding: 1rem 0.5rem !important;
+    }
+    .header-title {
+      font-size: 2rem !important;
+      line-height: 1.2 !important;
+    }
+    .logo-circle {
+      width: 70px !important;
+      height: 70px !important;
+    }
+    .logo-text {
+      font-size: 1.2rem !important;
+    }
+    
+    /* Touch target sizes */
+    .schedule-button, .cta-button {
+      min-height: 48px !important;
+      padding: 12px 16px !important;
+    }
+  }
+
+  /* Very small screen adjustments */
+  @media (max-width: 400px) {
+    .header-title {
+      font-size: 1.8rem !important;
+    }
+    .logo-circle {
+      width: 60px !important;
+      height: 60px !important;
+    }
+  }
+
+  /* Prevent layout shift on theme toggle */
+  .theme-transition * {
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+}
